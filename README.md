@@ -7,6 +7,7 @@ I'm Hongwei (Alessandro)! I'm a **FullStack Devoloper** from Italy, passionate a
 <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="40"> <em><b>I love connecting with different people</b> so if you want to say <b>hi, I'll be happy to meet you more!</b> :blush:</em>
 
 <!-- Your badges -->
+<h3 align="left">Connect with me:</h3>
 [![Linkedin](https://img.shields.io/badge/-HongweiWeng-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/hongwei-weng-7548962a1/)
 [![Gmail](https://img.shields.io/badge/-HongweiWeng-c14438?style=flat&logo=Gmail&logoColor=white)](mailto:alexanderiozzino1@gmail.com)
 
