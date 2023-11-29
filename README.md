@@ -11,7 +11,7 @@ I'm Hongwei (Alessandro)! I'm a **FullStack Devoloper** passionate about making 
 [![Gmail](https://img.shields.io/badge/-HongweiWeng-c14438?style=flat&logo=Gmail&logoColor=white)](mailto:alexanderiozzino1@gmail.com)
 
 <!-- Working GIF -->
-<img src="https://github.com/xAlessandroo/xAlessandroo/blob/main/DevImage.jpg" alt="dev_object" align="right" width="350" height="200" />
+<img src="https://github.com/xAlessandroo/xAlessandroo/blob/main/DevImage.jpg" alt="dev_object" align="right" width="320" height="200" />
 
 ### 💼  Things that I'm currently working on: 
 * 🔜
