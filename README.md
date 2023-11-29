@@ -10,11 +10,8 @@ I'm Hongwei (Alessandro)! I'm a **FullStack Devoloper** passionate about making 
 [![Linkedin](https://img.shields.io/badge/-HongweiWeng-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/hongwei-weng-7548962a1/)
 [![Gmail](https://img.shields.io/badge/-HongweiWeng-c14438?style=flat&logo=Gmail&logoColor=white)](mailto:alexanderiozzino1@gmail.com)
 
-<!-- Profile View Count -->
-![](https://komarev.com/ghpvc/?username=joykishansharma&style=flat)
-[![Google Playstore](https://img.shields.io/badge/-Joy_Apps_Developers_Team-gray?style=flat&logo=Google-Play&logoColor=white)](https://play.google.com/store/apps/developer?id=Joy+Apps+Developers+Team&hl=en_IN)
-
 <!-- Working GIF -->
+<!--
 <img src="#"<!-- https://github.com/JoykishanSharma/JoykishanSharma/blob/master/dev_object.png --> alt="dev_object" align="right" width="500" height="250" />
 
 ### 💼  Things that I'm currently working on: 
