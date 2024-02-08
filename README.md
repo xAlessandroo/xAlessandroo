@@ -32,4 +32,4 @@ I'm Hongwei (Alessandro)! I'm a **FullStack Devoloper** from Italy, passionate a
  </p>
 
 
-<h4 align="center"> Thanks for Visiting!:innocent:</h4>
+<h4 align="center"> Thanks for Visiting! :innocent: </h4>
