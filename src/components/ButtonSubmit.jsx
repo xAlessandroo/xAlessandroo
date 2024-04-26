@@ -5,7 +5,7 @@ const ButtonSubmit = ({ isActive, handleClick }) => {
   return (
     <div className="wrapper">
       <button className={`submitBtn ${isActive ? 'is_active' : ''}`} onSubmit={handleClick}>
-        <span className='submit'>{isActive ? 'Submitted' : 'Submit'}</span>
+        <span className='submit'>{isActive ? 'Done' : 'Send'}</span>
         {isActive && (
           <div className="success">
             <svg
