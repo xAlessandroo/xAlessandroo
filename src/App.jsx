@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./App.scss";
-
+import emailjs from "emailjs-com";
+import ButtonSubmit from "./components/ButtonSubmit";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -8,17 +9,26 @@ function App() {
   const [icons, seticons] = useState("light.png");
   const [cardIcons, setCardIcons] = useState("lIcon");
   const [bgColorMode, setbgColorMode] = useState("bgDarkL");
+  const [formData, setFormData] = useState({
+    name: "",
+    companyName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [emailSent, setEmailSent] = useState(false);
   const portfolioRef = useRef(null);
   const aboutMeRef = useRef(null);
   const resumeRef = useRef(null);
   const contactRef = useRef(null);
   const homeRef = useRef(null);
+  const [isEmailSending, setIsEmailSending] = useState(false);
 
   const scrollToRef = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth"});
+    ref.current.scrollIntoView({ behavior: "smooth" });
   };
   const scrollToRef2 = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth", block: "end"});
+    ref.current.scrollIntoView({ behavior: "smooth", block: "end" });
   };
 
   const toggleTheme = () => {
@@ -39,6 +49,64 @@ function App() {
     link.click();
     document.body.removeChild(link);
   }; //ChatGPT helped me with this function!!
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Verifica se tutti i campi sono completati
+    const { name, email, phone, message, companyName } = formData;
+    if (!name || !email || !phone || !message) {
+      return;
+    }
+    setIsEmailSending(true);
+
+    try {
+      emailjs.init('-Bgr32nzRGGpWZ1_T');
+
+      // Invio dell'email utilizzando emailjs
+      await emailjs.send('service_m174eim', 'template_9aqtq0l', {
+        from_name: name,
+        from_email: email,
+        from_company: companyName,
+        phone: phone,
+        message: message,
+        to_email: 'alexanderiozzino1@gmail.com', // Indirizzo email di destinazione
+      });
+
+      setEmailSent(true);
+      setFormData({
+        name: "",
+        companyName: "",
+        email: "",
+        phone: "",
+        message: "",
+      }); // Resettiamo il form
+    } catch (error) {
+      console.error("Error sending email:", error);
+      // Gestisci l'errore qui, ad esempio visualizzando un messaggio di errore all'utente
+    } finally {
+      setIsEmailSending(false);
+    }
+  };
+
+
+  useEffect(() => {
+    if (emailSent) {
+      const resetEmailSent = setTimeout(() => {
+        setEmailSent(false);
+      }, 5000); // Tempo in millisecondi prima di ripristinare emailSent a false (5 secondi in questo caso)
+      return () => clearTimeout(resetEmailSent); // Pulizia dell'effetto
+    }
+  }, [emailSent]);
 
   return (
     <div className={`app ${theme}`}>
@@ -128,14 +196,14 @@ function App() {
               className={`mode ${bgColorMode}`}
             />
             <button>
-            <a href="mailto:alexanderiozzino1@gmail.com" className="navTalk">
-              Let's talk!<p>💬</p>
-            </a>
+              <a href="mailto:alexanderiozzino1@gmail.com" className="navTalk">
+                Let's talk!<p>💬</p>
+              </a>
             </button>
           </div>
         </nav>
 
-        <div className="content" >
+        <div className="content">
           <section id="home" ref={homeRef}>
             <div className="homeContent">
               <p className="homeButton">⭐Let's talk!</p>
@@ -213,13 +281,18 @@ function App() {
                 <div>
                   <h5>Phone</h5>
                   <h3>
-                    <a href="tel:+393249854894" className={`${theme}`}>+39 324-985-4894</a>
+                    <a href="tel:+393249854894" className={`${theme}`}>
+                      +39 324-985-4894
+                    </a>
                   </h3>
                 </div>
                 <div>
                   <h5>E-mail</h5>
                   <h3>
-                    <a href="mailto:alexanderiozzino1@gmail.com" className={`${theme}`}>
+                    <a
+                      href="mailto:alexanderiozzino1@gmail.com"
+                      className={`${theme}`}
+                    >
                       alexanderiozzino1@gmail.com
                     </a>
                   </h3>
@@ -239,18 +312,40 @@ function App() {
               <div className="contentResume">
                 <p>2023 - 2024</p>
                 <div className="midContResume">
-                <h4>Full-Stack Developer course</h4>
-                <p>Course by <a href="" className={`${theme}`}>Develhope</a></p>
+                  <h4>Full-Stack Developer course</h4>
+                  <p>
+                    Course by{" "}
+                    <a href="" className={`${theme}`}>
+                      Develhope
+                    </a>
+                  </p>
                 </div>
-                <p>Completed an intensive 6-month remote Full-Stack Developer course with Develhope, focusing on front-end programming fundamentals. Acquired proficiency in HTML, CSS, and JavaScript, along with frameworks like React. Developed skills in building dynamic and responsive web applications.</p>
+                <p>
+                  Completed an intensive 6-month remote Full-Stack Developer
+                  course with Develhope, focusing on front-end programming
+                  fundamentals. Acquired proficiency in HTML, CSS, and
+                  JavaScript, along with frameworks like React. Developed skills
+                  in building dynamic and responsive web applications.
+                </p>
               </div>
               <div className="contentResume">
                 <p>2015 - 2020</p>
                 <div className="midContResume">
-                <h4>Scientific High School Diploma</h4>
-                <p>Course by <a href="" className={`${theme}`}>I.S Striano - Terzigno</a></p>
+                  <h4>Scientific High School Diploma</h4>
+                  <p>
+                    Course by{" "}
+                    <a href="" className={`${theme}`}>
+                      I.S Striano - Terzigno
+                    </a>
+                  </p>
                 </div>
-                <p>Completed a Scientific High School Diploma program at I.S. Striano-Terzigno. Throughout this journey, I improved my problem-solving skills and refined my research abilities, following a comprehensive curriculum focused on scientific principles and analytical thinking.</p>
+                <p>
+                  Completed a Scientific High School Diploma program at I.S.
+                  Striano-Terzigno. Throughout this journey, I improved my
+                  problem-solving skills and refined my research abilities,
+                  following a comprehensive curriculum focused on scientific
+                  principles and analytical thinking.
+                </p>
               </div>
             </div>
           </section>{" "}
@@ -258,15 +353,70 @@ function App() {
             <p className="homeButton">⭐Portfolio</p>
             <h2 className="sectionTitle">Check out my projects</h2>
             <div id="portfolioGridBase">
-              <a href="#"><img src="" alt="first project" /></a>
-              <a href="#"><img src="" alt="first project" /></a>
-              <a href="#"><img src="" alt="first project" /></a>
-              <a href="#"><img src="" alt="first project" /></a>
+              <a href="#">
+                <img src="" alt="first project" />
+              </a>
+              <a href="#">
+                <img src="" alt="first project" />
+              </a>
+              <a href="#">
+                <img src="" alt="first project" />
+              </a>
+              <a href="#">
+                <img src="" alt="first project" />
+              </a>
             </div>
           </section>
           <section ref={contactRef} id="contact">
             <p className="homeButton">⭐Contact</p>
-
+            <form onSubmit={handleSubmit} className="form">
+              <div className="formNames">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your name*"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="text"
+                  name="companyName"
+                  placeholder="Company Name"
+                  value={formData.companyName}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="formInfos">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email address*"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone number*"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <textarea
+                name="message"
+                placeholder="Message*"
+                required
+                value={formData.message}
+                onChange={handleChange}
+              />
+              <ButtonSubmit
+                isActive={!isEmailSending && emailSent}
+                handleClick={handleSubmit}
+              />
+            </form>
           </section>
         </div>
       </main>
