@@ -4,12 +4,12 @@
   box-sizing: border-box;
   font-family: "Calisto MT", serif;
 }
-@font-face {
-  font-family: 'Calisto MT';
-  src: url('path/to/CalistoMT-Regular.ttf') format('truetype');
-  font-family: 'Constantia';
-  src: url('path/to/Constantia-Regular.ttf') format('truetype');
-}
+// @font-face {
+//   font-family: 'Calisto MT';
+//   src: url('path/to/CalistoMT-Regular.ttf') format('truetype');
+//   font-family: 'Constantia';
+//   src: url('path/to/Constantia-Regular.ttf') format('truetype');
+// }
 
 .app {
   display: flex;

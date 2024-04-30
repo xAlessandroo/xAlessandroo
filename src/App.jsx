@@ -113,11 +113,11 @@ function App() {
       <aside className="card">
         <div className={`profile ${bgColor}`}>
           <div className="dflex">
-            <img src="../images/logoDef.jpg" alt="logo" className="cardLogo" />
+            <img src="./src/images/logoDef.jpg" alt="logo" className="cardLogo" />
             <h2>Hongwei Weng</h2>
           </div>
           <img
-            src="../images/Avatar2.png"
+            src="./src//images/Avatar2.png"
             alt="Profilo"
             className="profilepic"
           />
@@ -132,26 +132,26 @@ function App() {
           <div className="social-icons">
             <img
               className={`${cardIcons}`}
-              src="../images/instaLogo.png"
-              alt="Facebook"
+              src="./src//images/instaLogo.png"
+              alt="social placeholder"
             />
             <img
               className={`${cardIcons}`}
-              src="../images/instaLogo.png"
-              alt="Facebook"
+              src="./src//images/instaLogo.png"
+              alt="social placeholder"
             />
             <img
               className={`${cardIcons}`}
-              src="../images/instaLogo.png"
-              alt="Facebook"
+              src="./src//images/instaLogo.png"
+              alt="social placeholder"
             />
             <img
               className={`${cardIcons}`}
-              src="../images/instaLogo.png"
-              alt="Facebook"
+              src="./src//images/instaLogo.png"
+              alt="social placeholder"
             />
           </div>
-          <button className="button type3">Contact me</button>
+          <button className="button type3" onClick={() => scrollToRef(contactRef)}>Contact me</button>
         </div>
       </aside>
       <main className="main-container">
@@ -190,7 +190,7 @@ function App() {
           </ul>
           <div className="dflex navIcon">
             <img
-              src={`../images/${icons}`}
+              src={`./src//images/${icons}`}
               alt="light/dark mode"
               onClick={toggleTheme}
               className={`mode ${bgColorMode}`}
@@ -216,7 +216,7 @@ function App() {
                 >
                   My projects{" "}
                   <img
-                    src="../images/textIcon.svg"
+                    src="./src//images/textIcon.svg"
                     alt="text Icon"
                     className="homeIcon"
                   />
@@ -227,7 +227,7 @@ function App() {
                 >
                   Download CV{" "}
                   <img
-                    src="../images/download.svg"
+                    src="./src//images/download.svg"
                     alt="download"
                     className="homeIcon"
                   />{" "}
