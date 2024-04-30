@@ -8,9 +8,9 @@ export default defineConfig({
   build: {
     assetsInlineLimit: 0,
   },
-  server: {
-    hmr: {
-      port: 443,
-    },
-  },
+  // server: {
+  //   hmr: {
+  //     port: 443,
+  //   },
+  // },
 });
